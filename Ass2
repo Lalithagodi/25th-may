@@ -1,0 +1,38 @@
+a=int(input())
+b=int(input())
+l=[]
+m=[]
+while(a>0):
+    p=(a%10)
+    l.append(p)
+    a=a//10
+while(b>0):
+    q=(b%10)
+    m.append(q)
+    b=b//10
+if len(l)>len(m):
+    for i in range(len(m),len(l)):
+        m.append(0)
+if len(m)>len(l):
+    for i in range(len(l),len(m)):
+        l.append(0)
+print(l,m)
+k=0
+z=[]
+carry=0
+n=len(l)
+for i in range(0,n):
+    k=carry+l[i]+m[i]
+    if k<10:
+        carry=0
+    if k==10:
+        carry=1
+        k=0
+    if k>10:
+        carry=k%10
+        k=carry
+    z.append(k)
+print(z)
+z.reverse()
+for i in z:
+   print(i,end='')
